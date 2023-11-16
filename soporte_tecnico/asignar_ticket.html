@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
+    <title>Tickets</title>
+    <!-- this is CSS of SEP -->
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+    <!-- this is APP's CSS -->
+    <link rel="stylesheet" href="../css/main.css" />
+
+
+    <!-- this is LOADING's CSS  -->
+    <link rel="stylesheet" href="../css/cargando.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/ng-table.css" />
+    <link rel="stylesheet" href="../css/toggle-switch.css" />
+    <link rel="stylesheet" href="../css/select.css" />
+    <link rel="stylesheet" href="../css/select2.css" />
+    <style>
+        @font-face {
+            font-family: Montserrat;
+            src: url('../font/Montserrat-Regular.ttf');
+
+        }
+
+        @font-face {
+            font-family: Montserrat-Bold;
+            src: url('../font/Montserrat-Bold.ttf');
+
+        }
+    </style>
+
+</head>
+<div class="container-header">
+    <div class="cabecera2">
+        <div class="row" style="margin: 0;">
+            <div class="col-md-4" >
+                <h2 style="font-size: 28px;margin: 10px 0px;">Sistema de Tickets</h2>
+            </div>
+            <div class="col-md-3" ></div>
+            <div class="col-md-5" >
+                <div  style="margin: 10px 0px;">
+                    <span class="glyphicon glyphicon-user white-color" aria-hidden="true"></span>
+                    <span class="white-color" style="font-size: 13px;" >(Jefe de soporte técnico) </span>
+                    <span class="white-color" style="font-size: 13px;" > Rodrigo Trejo</span>
+                    <a class="white-color" style="text-decoration: none; margin-left: 5px; font-size: 15px;color: #B38E5D;" href="#" ng-click="$root.logout()">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span> cerrar sesión
+                    </a>
+                    <br>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<body>
+    <main class="page" >
+
+        <div ng-app="modMenu">
+
+
+
+            <div class="container" style="width: auto;padding: 0px 30px;margin-top: 60px;">
+
+                <div ng-controller="listaCtrl as ctrl" >
+                    <div class="col-sm-12">
+                        <h2 style="font-size: 26px;" >Asignar tickets</h2>
+                        <hr style="margin:10px 0 10px;" class="red">
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-12" style="margin-top: 20px;margin-left: 0;">
+                            <a href="solicitudes.html" target="_self"  >
+                                Regresar a las solicitudes
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb" style="padding: 0px;margin: 0px;margin-top: 10px;font-size: 16px;font-style: oblique;">
+                            <li class="active"><i class="glyphicon glyphicon-filter"></i>Filtros aplicados</li>
+                            <li class="ng-scope">categoría: <span class="ng-binding">impresoras</span></li>
+                            <li class="ng-scope">estatus: <span class="ng-binding">Abierto</span></li>
+                        </ol>
+                    </div>
+
+
+                    <div  class="container-ticket" style="border: 1px solid #ddd;padding: 15px;border-radius: 5px;  margin-top: 20px;  display: inline-block;">
+                        <div class="row">
+                            <div class="col-md-4" style="font-size: 20px;">
+                
+                                <p>
+                                    <strong>Estatus: </strong> <span class="alert alert-warning" 
+                                    style="padding: 5px;display: inline-block;">Abierto</span>
+                                </p>
+                            </div>
+                            <div class="col-md-4" style="font-size: 20px;">
+                                <p><strong>Número de ticket: </strong>2</p>
+                            </div>
+                            <div class="col-md-4" style="font-size: 20px;">
+                                <p><strong>Fecha de solicitud: </strong> 14-11-2023 12:34</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Categoría: </strong>Impresoras</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Nombre del solicitante: </strong>Juan Perez</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Fecha de atención: </strong>N/A</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Técnico asignado: </strong>Luis Perez</p>
+                            </div>
+                            
+                        </div>
+                     
+
+                        
+                        
+                        
+                        <div style="padding: 0 25px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>Detalle de la solicitud:</h5>
+                                    <div style="border: 1px solid #ddd;padding: 8px;border-radius: 5px;">
+                                        <p>Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Nunc mattis enim ut tellus elementum sagittis vitae et leo. Ullamcorper morbi tincidunt ornare massa.</p>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-12">
+                                    <h5>Respuestas:</h5>
+                                    <div style="border: 1px solid #ddd;padding: 8px;border-radius: 5px;">
+                                        <p>Morbi tristique senectus et netus et malesuada fames ac. Ante metus dictum at tempor commodo ullamcorper. Ut pharetra sit amet aliquam. 
+                                            <br>
+                                            <span style="color: darkgrey;font-size: 13px;font-style: oblique;font-weight: 500;">
+                                                Por Luis Perez el 2022-12-31 12:35:18 
+                                            </span>
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                        
+                        
+            
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+						<div style="text-align: right;">
+							<ul class="pagination">
+								<li><a ng-click="cambiarTicket(0)" href="javascript:;">
+										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Ticket
+										Anterior</a></li>
+								<li><a href="javascript:;" class="ng-binding"> 1 / 2</a></li>
+								<li><a ng-click="cambiarTicket(1)" href="javascript:;">
+										Ticket Siguiente <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+							</ul>
+						</div>
+					</div>
+   
+                    
+
+                    <div class="col-sm-6">
+                        <label class="control-label">Asignar a técnico:</label>
+                        <select class="form-control ng-not-empty " name="asignar" required="" ng-change="cambiaUsrMesaAyuda()" ng-model="cveDocenteAsignacion" style="padding: 5px;">
+                            <option value="" selected="selected">- Seleccione una opción -</option>
+                            <option  value="number:2825212">
+                                HORTENSIA AGUILA GONZALEZ
+                            </option>
+                            <option  class="ng-binding ng-scope" value="number:3560797">
+                                IVANNA GUADALUPE PALMA MARTINEZ
+                            </option>
+                        </select>
+        
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="text-left">
+                            <button class="btn btn-primary" ng-disabled="!cveDocenteAsignacion" style="margin-top: 20px;" ng-click="asignar()">Seleccionar</button>
+                            <button class="btn btn-default" style="margin-top: 20px;" ng-click="asignarTodos()">Seleccionar
+                                todos</button>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="font-size: 16px; margin-top:15px;">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="8%">#</th>
+                                    <th width="52%">Agente mesa ayuda</th>
+                                    <th width="8%">Tickets</th>
+                                    <th width="32%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="ng-scope" style="">
+                                    <th class="ng-binding">1</th>
+                                    <td class="ng-binding">IVANNA GUADALUPE PALMA MARTINEZ</td>
+                                    <td class="ng-binding">1</td>
+                                    <td style="text-align: right;">
+                                        <button type="button" ng-click="aumentarTickets(ht)" style="width: 60px;" class="btn btn-danger btn-sm" title="aumentar"><span class="glyphicon glyphicon-plus"></span></button>
+                                        <button type="button" ng-click="disminuirTickets(ht)" style="width: 60px;" class="btn btn-danger btn-sm" title="disminuir"><span class="glyphicon glyphicon-minus"></span></button>
+                                        <button type="button" ng-click="deseleccionarAgente(ht)" style="width: 60px;" class="btn btn-primary btn-sm" title="ver archivo"><span class="glyphicon glyphicon-trash"></span></button>
+                                    </td>
+                                </tr><tr  class="ng-scope" style="">
+                                    <th class="ng-binding">2</th>
+                                    <td class="ng-binding">MARIA DE LOURDES FALCON LARA</td>
+                                    <td class="ng-binding">1</td>
+                                    <td style="text-align: right;">
+                                        <button type="button" ng-click="aumentarTickets(ht)" style="width: 60px;" class="btn btn-danger btn-sm" title="aumentar"><span class="glyphicon glyphicon-plus"></span></button>
+                                        <button type="button" ng-click="disminuirTickets(ht)" style="width: 60px;" class="btn btn-danger btn-sm" title="disminuir"><span class="glyphicon glyphicon-minus"></span></button>
+                                        <button type="button" ng-click="deseleccionarAgente(ht)" style="width: 60px;" class="btn btn-primary btn-sm" title="ver archivo"><span class="glyphicon glyphicon-trash"></span></button>
+                                    </td>
+                                </tr>
+            
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" style="text-align: left;font-weight: 600;" class="ng-binding">Total tickets: 2 </td>
+                                    
+                                    <td colspan="1" rowspan="2" style="text-align: right;">
+                                        <button class="btn btn-default" ng-click="regresar()">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar </button>
+                                        <button class="btn btn-primary" ng-disabled="!ticketsAgentesList.length" ng-click="asignarTickets()">Asignar Tickets</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="text-align: left;font-weight: 600;" class="ng-binding">Total de tickets reasignados: 0 </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+            
+            
+            
+            
+                    </div>
+           
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <footer>
+            <hr>
+            <!-- this is footer -->
+
+            <div class="footer-copyright text-center py-3 version">
+                © <span>2023</span> Copyright:
+
+                <a href="http://usicamm.sep.gob.mx/">USICAMM</a> -- [ <span>Beta v.0.0.1</span> ]
+            </div>
+        </footer>
+        <!-- JS SEP -->
+        <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/ng-table.js"></script>
+        <script src="../js/select.js"></script>
+        <script>
+            var app =  angular.module('modMenu', [ 'ngTable', 'ui.select']).
+                        controller('listaCtrl', ['$scope', '$rootScope', 'ngTableParams', '$filter','$window',
+                        function ($scope, $rootScope, ngTableParams, $filter, $window) {
+
+                            $scope.ticketsSeleccionados = function(){
+                                $window.location.href = "asignar_ticket.html";
+                            };
+
+                            $scope.listaTest = [
+                            {
+                                    cveTicket: 1,
+                                    tema: 'Actualización de correo',
+                                    nombreCompleto: 'Juan Perez Duran',
+                                    curp: 'HEFC650627MDFRGR03',
+                                    temaAyuda: 'Cambio correo. Anexa INE',
+                                    entidad: 'Aguascalientes',
+                                    procesos: 'Promoción',
+                                    asignacion: 'Roberto Suarez',
+                                    fechaCreacion: '2022-09-12 12:35:18',
+                                    fechaAtencion: '2022-12-31 12:35:18',
+                                    estatus: 'Atendido',
+                                    cveEstatus: 1,
+                                    atendio: 'Luis Perez',
+                                    detalles: 'Letraset sheets containing Lorem Ipsum passages, and more recently with',
+                                    respuesta:'Excepteur sint occaecat cupidatat non proident'
+                                },
+                                {
+                                    cveTicket: 2,
+                                    tema: 'Impresora',
+                                    nombreCompleto: 'Adrián Hernandez Garcia',
+                                    curp: 'DIGR850825HMCLRL05',
+                                    temaAyuda: 'Alta de usuarios en Venus',
+                                    entidad: 'Ciudad de México',
+                                    procesos: 'Promoción horizontal',
+                                    asignacion: 'Luis Perez',
+                                    fechaCreacion: '2022-09-12 12:35:18',
+                                    estatus: 'En proceso',
+                                    cveEstatus: 2,
+                                    detalles: 'Many desktop publishing packages and web page editors now use Lorem Ipsum',
+                                    respuesta:''
+                                },
+                                {
+                                    cveTicket: 3,
+                                    asunto: 'Necesito saber sobre los cursos',
+                                    tema: 'Red',
+                                    nombreCompleto: 'Sofia Ruíz Cañas',
+                                    curp: 'OILJ690818HDFRDN04',
+                                    temaAyuda: 'Consulta de Convocatorias',
+                                    entidad: 'Nayarit',
+                                    procesos: 'Beca Comisión',
+                                    asignacion: '',
+                                    fechaCreacion: '2022-12-31 12:35:18',
+                                    estatus: 'Abierto',
+                                    cveEstatus: 3,
+                                    detalles: 'All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary',
+                                    respuesta:''
+                                }
+
+                            ];
+                            $scope.tablaTest = new ngTableParams(
+                                {
+                                    page: 1, // primera página a mostrar
+                                    count: 20         // registros por página
+                                },
+                                {
+                                    debugMode: false,
+                                    counts: [],
+                                    total: $scope.listaTest.length, // resultados en total
+                                    getData: function ($defer, params)
+                                    {
+                                        $scope.listTbl = params.sorting() ? $filter('orderBy')($scope.listaTest, params.orderBy()) : $scope.listaTest;
+                                        $scope.listTbl = params.filter() ? $filter('filter')($scope.listTbl, params.filter()) : $scope.listTbl;
+                                        params.total($scope.listTbl.length);
+                                        $scope.listTbl = $scope.listTbl.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                                        for (let i in $scope.listTbl) {
+                                            $scope.listTbl[i].num = (parseInt(i) + 1) + ((params.page() - 1) * 20);
+                                        }
+                                        $defer.resolve($scope.listTbl);
+
+                                        if (params.page() !== 1) {
+                                            $window.scrollTo(120, 120);
+                                        }
+                                        $scope.tablaPagina = params.page();
+
+                                    }
+                                }
+                            );
+            
+                        }]);
+        </script>
+    </main>
+
+</body>

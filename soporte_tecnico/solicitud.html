@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
+    <title>Tickets</title>
+    <!-- this is CSS of SEP -->
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+    <!-- this is APP's CSS -->
+    <link rel="stylesheet" href="../css/main.css" />
+
+
+    <!-- this is LOADING's CSS  -->
+    <link rel="stylesheet" href="../css/cargando.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/ng-table.css" />
+    <link rel="stylesheet" href="../css/toggle-switch.css" />
+    <link rel="stylesheet" href="../css/select.css" />
+    <link rel="stylesheet" href="../css/select2.css" />
+    <style>
+        @font-face {
+            font-family: Montserrat;
+            src: url('../font/Montserrat-Regular.ttf');
+
+        }
+
+        @font-face {
+            font-family: Montserrat-Bold;
+            src: url('../font/Montserrat-Bold.ttf');
+
+        }
+    </style>
+
+</head>
+<div class="container-header">
+
+<div class="cabecera">
+    <div class="banner-img">
+        <figure class="banner-img-figure">
+            <img src="../img/cintillo2.png" />
+        </figure>
+    </div>
+    <div class="banner">
+        <div class="container container2" >
+            <h2>Sistema de Tickets</h2>
+            <div class="nav-sep"></div>
+            <div class="container container2  " >
+                <span class="glyphicon glyphicon-user white-color" aria-hidden="true"></span>
+                <span class="white-color" style="font-size: 13px;" >(Empleado USICAMM)</span>
+                <span class="white-color" style="font-size: 13px;" > Rodrigo Trejo Guerra</span>
+                <a class="white-color" style="text-decoration: none; margin-left: 5px; font-size: 15px;" href="#" ng-click="$root.logout()">
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span> cerrar sesión
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+<body>
+    <main class="page" style="background: #f7f4ec;">
+
+        <div ng-app="modMenu">
+
+
+
+            <div class="container" style="width: auto;padding: 0px 30px;color: #6F7271;">
+
+                <div ng-controller="listaCtrl as ctrl" >
+                    <div class="col-sm-12">
+                        <h2 style="font-size: 26px;" >Solicitud de soporte técnico</h2>
+                        <hr style="margin:10px 0 10px;" class="red">
+                    </div>
+            
+        
+                <div class="col-md-12" style="margin-top: 15px;" >
+                    <div class="col-sm-12">
+                        <p class="nota">Los campos marcados con <label class="is-required"></label> son requeridos</p>
+                    </div>
+                    <form name="funcionariosForm" role="form" novalidate autocomplete="off"  >
+                        
+                       
+                      
+
+                        <div class="col-sm-12 span-2-column">
+                            <label class="control-label is-required">Detalle de la solicitud:</label>
+                            <textarea class="form-control"  rows="3" name="descripcionLarga"  maxlength="255"
+                                   ng-model="data.descripcionLarga" placeholder="..." >
+                            </textarea>
+                        </div>
+
+                        <div class="col-sm-12 span-2-column" style="margin-bottom: 18px;">
+                            <label class="control-label">Archivo adicional para el detalle de la solicitud:</label>
+                            <input id="fileIne" name="fileIne" type="file" accept=".pdf, .png, .jpg, jpeg" class="form-control">
+                            <p class="nota">formato aceptado .pdf, .png, .jpg, .jpeg y .xlsx</p>
+                            <!-- maximo 1 MB  y se aceptan imagenes -->
+                        </div>
+
+                       
+                    </form>
+                    <div class="col-sm-12" style="margin-top: 20px;">
+                        <div class="text-center">
+                                <button class="btn btn-default" onclick="location.href='../empleados.html'" >Regresar</button>
+                                <input type="button"  value="Generar solicitud"
+                                    class="btn btn-primary" ng-click="guardaInstitucion()" />
+                 
+                        </div>
+                    </div>
+                    
+        
+                </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <footer>
+            <hr>
+            <!-- this is footer -->
+
+            <div class="footer-copyright text-center py-3 version">
+                © <span>2023</span> Copyright:
+
+                <a href="http://usicamm.sep.gob.mx/">USICAMM</a> -- [ <span>Beta v.0.0.1</span> ]
+            </div>
+        </footer>
+        <!-- JS SEP -->
+        <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/ng-table.js"></script>
+        <script src="../js/select.js"></script>
+        <script>
+            var app =  angular.module('modMenu', [ 'ngTable', 'ui.select']).
+                        controller('listaCtrl', ['$scope', '$rootScope', 'ngTableParams', '$filter',
+                        function ($scope, $rootScope, ngTableParams, $filter) {
+
+                            $scope.listaTest = [
+                                {
+                                    cvePlantilla: 1,
+                                    nivelEducativo: 'Educación Básica',
+                                    proceso: 'Ingreso',
+                                    preguntaProblematica: 'NO EXISTE UNA RESPUESTA INMEDIATA PARA DAR RESPUESTA A LA PROBLEMÁTICA',
+                                    respuestaAutorizada: 'Estimada Maestra, Maestro: En atención a su petición de hablar con un funcionario de mayor jerarquía de la USICAMM, le solicitamos amablemente, un número telefónico para que se comunique con usted. Gracias por usar nuestro sistema de tickets, si requiere información adicional, recuerde que estamos para servirle; en el siguiente enlace ingresando su correo electrónico y el número de ticket podrá incluir sus comentarios. DAR CLIC EN EL SIGUIENTE LINK PARA VER EL ESTADO DE UN TICKET http://tickets.uscmm.gob.mx/MesaAyuda/',
+                                    fechaCreacion: '2022-03-25 00:00:00',
+                                    fechaVigencia: '2030-12-31',
+                                    fechaActualizacion: '2022-09-12 12:35:18',
+                                    activa: true
+                                },
+                                {
+                                    cvePlantilla: 2,
+                                    nivelEducativo: 'Educación Media Superior',
+                                    proceso: 'Promoción',
+                                    preguntaProblematica: 'EL DOCENTE INSISTE EN HABLAR CON DIRECTIVO O PERSONAL AUTORIZADO DE LA USICAMM',
+                                    respuestaAutorizada: 'Estimada Maestra, Maestro: En atención a su situación, le comentamos que, por el momento no contamos con una respuesta inmediata a la problemática planteada, por lo que le solicitamos un tiempo de espera de 24 horas para atenderlo.',
+                                    fechaCreacion: '2022-03-25 00:00:00',
+                                    fechaVigencia: '2030-12-31',
+                                    fechaActualizacion: '2022-09-12 12:35:18',
+                                    activa: true
+                                },
+                                {
+                                    cvePlantilla: 3,
+                                    nivelEducativo: 'Educación Básica',
+                                    proceso: 'Reconocimiento',
+                                    preguntaProblematica: 'RESPUESTA PARA CERRAR TICKETS DOBLES',
+                                    respuestaAutorizada: 'Estimada Maestra, Maestro: En atención a su solicitud, le comentamos que el sistema detectó que tiene dos tickets con la misma problemática, por lo tanto, se le dará respuesta en el número: Gracias por usar nuestro sistema de tickets, si requiere información adicional, recuerde que estamos para servirle; en el siguiente enlace ingresando su correo electrónico y el número de ticket podrá incluir sus comentarios. DAR CLIC EN EL SIGUIENTE LINK PARA VER EL ESTADO DE UN TICKET http://tickets.uscmm.gob.mx/MesaAyuda/',
+                                    fechaCreacion: '2021-03-25 00:00:00',
+                                    fechaVigencia: '2022-12-31',
+                                    fechaActualizacion: '2022-12-31 12:35:18',
+                                    activa: false
+                                },
+
+                            ];
+                            $scope.tablaTest = new ngTableParams(
+                                {
+                                    page: 1, // primera página a mostrar
+                                    count: 20         // registros por página
+                                },
+                                {
+                                    debugMode: false,
+                                    counts: [],
+                                    total: $scope.listaTest.length, // resultados en total
+                                    getData: function ($defer, params)
+                                    {
+                                        $scope.listTbl = params.sorting() ? $filter('orderBy')($scope.listaTest, params.orderBy()) : $scope.listaTest;
+                                        $scope.listTbl = params.filter() ? $filter('filter')($scope.listTbl, params.filter()) : $scope.listTbl;
+                                        params.total($scope.listTbl.length);
+                                        $scope.listTbl = $scope.listTbl.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                                        for (let i in $scope.listTbl) {
+                                            $scope.listTbl[i].num = (parseInt(i) + 1) + ((params.page() - 1) * 20);
+                                        }
+                                        $defer.resolve($scope.listTbl);
+
+                                        if (params.page() !== 1) {
+                                            $window.scrollTo(120, 120);
+                                        }
+                                        $scope.tablaPagina = params.page();
+
+                                    }
+                                }
+                            );
+            
+                        }]);
+        </script>
+    </main>
+
+</body>
